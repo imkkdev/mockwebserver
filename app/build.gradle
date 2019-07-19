@@ -13,11 +13,21 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testBuildType "andTest"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        andTest {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug  //other buildType must set signingConfig
         }
     }
     configurations.all {

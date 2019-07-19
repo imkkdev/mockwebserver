@@ -25,6 +25,9 @@ class MainActivityTest {
 
     @Before
     fun setup() {
+        // can use http://localhost:xxxx
+        // can get host by #mockWebServer.hostName #mockWebServer.port  #mockWebServer.url("")
+        // if mockWebServer get 503 response, check the phone network setting
         Constants.URL = "http://127.0.0.1:8089/"
         mockWebServer.start(8089)
         mockWebServer.setDispatcher(dispatcher)
