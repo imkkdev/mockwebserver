@@ -15,11 +15,11 @@ import org.junit.runner.RunWith
 import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class MainActivityTestV0 {
 
     @JvmField
     @Rule
-    val activityTestRule = ActivityTestRule(MainActivity::class.java, true, false)
+    val activityTestRule = ActivityTestRule(PokeMainActivity::class.java, true, false)
 
     private val mockWebServer = MockWebServer()
 

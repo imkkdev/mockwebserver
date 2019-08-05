@@ -16,13 +16,14 @@
             android:networkSecurityConfig="@xml/network_security_config"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning"
             tools:targetApi="n">
-        <activity android:name="com.kk.testapp.MainActivity">
+        <activity android:name="com.kk.testapp.PokeMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".PokeDetailActivity"/>
     </application>
 
 </manifest>
