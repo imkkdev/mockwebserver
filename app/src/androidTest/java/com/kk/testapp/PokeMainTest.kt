@@ -1,18 +1,12 @@
 package com.kk.testapp
 
-import androidx.test.rule.ActivityTestRule
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.RecordedRequest
-import org.junit.Rule
 
-class PokeMainTest : MockBase() {
+class PokeMainTest : MockBase(PokeMainActivity::class.java) {
 
-    @JvmField
-    @Rule
-    val rule = ActivityTestRule(PokeMainActivity::class.java, true, false)
-
-    fun jump() {
-        rule.launchActivity(null)
+    override fun jump() {
+        super.jump()
     }
 
     override fun dispatch(request: RecordedRequest?): MockResponse {
