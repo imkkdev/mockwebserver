@@ -1,0 +1,23 @@
+{
+  "count": 1,
+  "next": "Next",
+  "previous": "Previous",
+  "results": [
+    {
+      "name": "Poke1",
+      "url": "www.google.com",
+      "type": [
+        "type1",
+        "type2"
+      ]
+    },
+    {
+      "name": "Poke2",
+      "url": "www.google.com",
+      "type": [
+        "type1",
+        "type2"
+      ]
+    }
+  ]
+}

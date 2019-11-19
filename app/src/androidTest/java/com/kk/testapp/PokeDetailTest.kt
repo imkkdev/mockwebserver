@@ -26,9 +26,6 @@ class PokeDetailTest : MockBase(PokeDetailActivity::class.java) {
     }
 
     override fun dispatch(request: RecordedRequest?): MockResponse {
-        return MockResponse().setBody(body)
+        return MockResponse().setBody(getJson("json/pokemon.json"))
     }
-
-    private val body =
-        "{\"name\":\"Poke\",\"url\":\"www.google.com\",\"type\":[\"type1\",\"type2\"]}"
 }

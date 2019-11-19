@@ -1,6 +1,7 @@
 package com.kk.testapp
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.kk.testapp.model.MessageDto
 import com.kk.testapp.model.Pokemon
 import com.kk.testapp.model.PokemonResponse
 import kotlinx.coroutines.Deferred
@@ -23,6 +24,9 @@ interface TestAPI {
 
     @GET("v2/pokemon/{name}")
     fun getPokemonDetailAsync(@Path("name") name: String): Deferred<Pokemon>
+
+    @GET("v2/msg")
+    fun getPokemonMessageAsync(): Deferred<List<MessageDto>>
 
     companion object {
         fun defaultInstance(baseUrl: String): TestAPI {

@@ -60,16 +60,22 @@ open class MockBase(activityClass: Class<out Activity>) : Dispatcher() {
     }
 
     override fun dispatch(request: RecordedRequest?): MockResponse {
-        return MockResponse().setBody(success)
+        if (addPageResponse().isNotEmpty()) {
+            requestMap.addAll(addPageResponse())
+        }
+        return dispatchImpl(request, requestMap)
     }
 
-    open val success = "{\"status\":\"00000\",\"msg\":\"操作成功\",\"errorMsg\":\"\",\"success\":true}"
+    private val requestMap: MutableList<Pair<String, MockResponse>> = mutableListOf()
 
+    open fun addPageResponse(): MutableList<Pair<String, MockResponse>> {
+        return mutableListOf()
+    }
 
-    private fun fillIntentArguments(params: Array<out Pair<String, Any?>?>) : Intent {
+    private fun fillIntentArguments(params: Array<out Pair<String, Any?>?>): Intent {
         val intent = Intent()
         params.forEach {
-            if (it == null)  return@forEach
+            if (it == null) return@forEach
             val value = it.second
             when (value) {
                 null -> intent.putExtra(it.first, null as Serializable?)
